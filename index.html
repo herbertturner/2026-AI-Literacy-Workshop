@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Literacy Workshop - Participant Notebook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f9fafb; color: #111827; }
+        .notebook-card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+        textarea { width: 100%; min-height: 220px; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 4px; resize: vertical; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <header class="mb-8 flex items-center justify-between border-b pb-6">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900">AI Literacy Workshop</h1>
+            <p class="text-gray-600">Participant Notebook</p>
+        </div>
+        <img src="assets/images/workshoplogo.png" alt="Workshop Logo" class="h-20 w-auto rounded shadow-sm">
+    </header>
+
+    <main class="max-w-3xl mx-auto" id="notebook-container">
+        <!-- Introduction -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Introduction</h2>
+            <textarea id="note-intro" placeholder="Take notes here..." oninput="autoSaveNote('intro')"></textarea>
+        </div>
+
+        <!-- How to Use Guide -->
+        <div class="notebook-card bg-blue-50 border-blue-200">
+            <h2 class="font-semibold text-lg mb-2 text-blue-900">How to Use this Notebook</h2>
+            <p class="text-gray-700 text-sm">The purpose of this notebook is to provide you with an online space to jot down key ideas, takeaways, and thoughts about what the presenter covers in each section of the workshop. Because your notes are saved locally in your browser, you can refer back to them during the Certification activity.</p>
+        </div>
+
+        <!-- Part I -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Part I: AI Origins – Where AI Came From</h2>
+            <textarea id="note-part1" placeholder="Take notes here..." oninput="autoSaveNote('part1')"></textarea>
+        </div>
+
+        <!-- Part II.A -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Part II.A: The AI Landscape – AI Fundamentals & Tools</h2>
+            <textarea id="note-part2a" placeholder="Take notes here..." oninput="autoSaveNote('part2a')"></textarea>
+        </div>
+
+        <!-- Part II.B -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Part II.B: The AI Landscape – Building Your AI Toolkit</h2>
+            <textarea id="note-part2b" placeholder="Take notes here..." oninput="autoSaveNote('part2b')"></textarea>
+        </div>
+
+        <!-- Part III -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Part III: The AI Workflow – Integrating the Toolkit</h2>
+            <textarea id="note-part3" placeholder="Take notes here..." oninput="autoSaveNote('part3')"></textarea>
+        </div>
+
+        <!-- Part IV -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Part IV: Hands On – Using the Toolkit</h2>
+            <textarea id="note-part4" placeholder="Take notes here..." oninput="autoSaveNote('part4')"></textarea>
+        </div>
+
+        <!-- Q&A and Wrap Up -->
+        <div class="notebook-card">
+            <h2 class="font-semibold text-lg mb-2">Q&A and Wrap Up</h2>
+            <textarea id="note-wrapup" placeholder="Take notes here..." oninput="autoSaveNote('wrapup')"></textarea>
+        </div>
+    </main>
+
+    <footer class="max-w-3xl mx-auto mt-12 pt-6 border-t border-gray-300 text-sm text-gray-500 text-center">
+        <p>© 2026 NPCL & Analytica Insights, Inc. AI Literacy Workshop Notebook.</p>
+    </footer>
+
+    <script>
+        const sections = ['intro', 'part1', 'part2a', 'part2b', 'part3', 'part4', 'wrapup'];
+
+        // Load notes from localStorage on startup
+        window.onload = () => {
+            sections.forEach(id => {
+                const saved = localStorage.getItem(`ai_lit_note_${id}`);
+                const element = document.getElementById(`note-${id}`);
+                if(saved && element) element.value = saved;
+            });
+        };
+
+        // Auto-save function
+        function autoSaveNote(id) {
+            const val = document.getElementById(`note-${id}`).value;
+            localStorage.setItem(`ai_lit_note_${id}`, val);
+        }
+    </script>
+</body>
+</html>
