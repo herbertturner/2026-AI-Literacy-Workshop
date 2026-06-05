@@ -8,6 +8,7 @@
     <style>
         body { background-color: #f9fafb; color: #111827; }
         .notebook-card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+        .instruction-card { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
         textarea { width: 100%; min-height: 220px; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 4px; resize: vertical; }
     </style>
 </head>
@@ -21,16 +22,17 @@
     </header>
 
     <main class="max-w-3xl mx-auto" id="notebook-container">
+        
+        <!-- How to Use Guide -->
+        <div class="instruction-card">
+            <h2 class="font-semibold text-lg mb-2 text-blue-900">How to Use this Notebook</h2>
+            <p class="text-gray-700 text-sm">The purpose of this notebook is to provide you with an online space to jot down key ideas, takeaways, and thoughts about what the presenter covers in each section of the workshop. Because your notes are saved locally in your browser, you can refer back to them during the Certification activity.</p>
+        </div>
+
         <!-- Introduction -->
         <div class="notebook-card">
             <h2 class="font-semibold text-lg mb-2">Introduction</h2>
             <textarea id="note-intro" placeholder="Take notes here..." oninput="autoSaveNote('intro')"></textarea>
-        </div>
-
-        <!-- How to Use Guide -->
-        <div class="notebook-card bg-blue-50 border-blue-200">
-            <h2 class="font-semibold text-lg mb-2 text-blue-900">How to Use this Notebook</h2>
-            <p class="text-gray-700 text-sm">The purpose of this notebook is to provide you with an online space to jot down key ideas, takeaways, and thoughts about what the presenter covers in each section of the workshop. Because your notes are saved locally in your browser, you can refer back to them during the Certification activity.</p>
         </div>
 
         <!-- Part I -->
@@ -71,7 +73,8 @@
     </main>
 
     <footer class="max-w-3xl mx-auto mt-12 pt-6 border-t border-gray-300 text-sm text-gray-500 text-center">
-        <p>© 2026 NPCL & Analytica Insights, Inc. AI Literacy Workshop Notebook.</p>
+        <p>© 2026 AI Literacy Workshop Notebook</p>
+        <p>NPCL & Analytica Insights, Inc.</p>
     </footer>
 
     <script>
